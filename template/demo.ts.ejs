@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    font-size: 32px;
+  }
+  .icon-item {
+    display: inline-block;
+    margin-right: 16px;
+  }
+  .text {
+    opacity: 0;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+</style>
+<body>
+  <%= content %>
+  <input class="text" type="text"/>
+  <script>
+    const icons = document.querySelectorAll('.icon-item');
+    const input = document.querySelector('.text');
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].onclick = (e) => {
+
+        const text = e.currentTarget.getAttribute('data-name');
+        input.value = text;
+        input.select();
+        document.execCommand("copy"); 
+        setTimeout(() => {
+          alert("复制成功");
+        })
+      }
+    }
+  </script>
+</body>
+</html>

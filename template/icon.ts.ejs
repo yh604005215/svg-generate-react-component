@@ -1,0 +1,10 @@
+import React, { forwardRef } from 'react';
+import Icon, { IconProps } from '../../Icon';
+
+const <%= identifier %> = forwardRef<HTMLSpanElement, IconProps>((props, ref) => <Icon {...props} ref={ref} >
+  <%= content %>
+</Icon>);
+
+<%= identifier %>.displayName = '<%= identifier %>';
+
+export default <%= identifier %>;
